@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Donchich Network Tools</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Donchich Tools</h2>
+            <nav>
+                <a href="index.html" class="nav-link active">Dashboard</a>
+                <a href="tools.html" class="nav-link">Tools</a>
+            </nav>
+            <div style="margin-top: auto;">
+                <button class="btn-outline" style="width: 100%;" id="openSettingsBtn">Settings</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1>Dashboard</h1>
+            </header>
+
+            <div class="grid">
+                <!-- Network Info Card -->
+                <div class="card">
+                    <span class="card-title">Network Info</span>
+                    <div class="stat-block">
+                        <span class="text-muted" id="netTypeLabel">Connection Type</span>
+                        <span class="stat-value" id="netTypeVal">--</span>
+                    </div>
+                    <div class="stat-block" style="margin-top: 16px;">
+                        <span class="text-muted" id="netBandwidthLabel">Est. Bandwidth</span>
+                        <span class="stat-value" id="netBandwidthVal">--</span>
+                    </div>
+                </div>
+
+                <!-- Public IP Card -->
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="card-title">Public Identity</span>
+                        <button class="btn-secondary" id="copyIpBtn" style="height: 28px; padding: 0 12px; font-size: 12px;">Copy IP</button>
+                    </div>
+                    <div class="stat-block">
+                        <span class="text-muted">IP Address</span>
+                        <span class="stat-value" id="ipAddressVal">Loading...</span>
+                    </div>
+                    <div class="text-muted" style="margin-top: auto;" id="ipLocationVal">
+                        --
+                    </div>
+                </div>
+
+                <!-- HTTP Ping Card -->
+                <div class="card">
+                    <span class="card-title">HTTP Ping</span>
+                    <div class="stat-block">
+                        <span class="text-muted">Latency to <span id="pingHostLabel">google.com</span></span>
+                        <span class="stat-value" id="pingVal">-- ms</span>
+                    </div>
+                    <button class="btn-primary" id="pingBtn" style="margin-top: auto;">Ping Server</button>
+                </div>
+
+                <!-- Speedtest Card -->
+                <div class="card">
+                    <span class="card-title">Speedtest</span>
+                    <div class="stat-block">
+                        <span class="text-muted">Download Speed</span>
+                        <span class="stat-value" id="speedVal">--</span>
+                        <span class="text-muted" id="speedUnitVal">Mbps</span>
+                    </div>
+                    <div class="text-muted" id="speedtestStatus">Ready</div>
+                    <button class="btn-primary" id="speedtestBtn" style="margin-top: auto;">Start Test</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Settings</h3>
+                <button class="btn-icon" id="closeSettingsBtn">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Speed Units</label>
+                    <select id="settingSpeedUnit">
+                        <option value="Mbps">Mbps (Megabits per second)</option>
+                        <option value="MB/s">MB/s (Megabytes per second)</option>
+                        <option value="Kbps">Kbps (Kilobits per second)</option>
+                        <option value="Gbps">Gbps (Gigabits per second)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Test Payload Size</label>
+                    <select id="settingPayloadSize">
+                        <option value="10">Small (10 MB)</option>
+                        <option value="50">Medium (50 MB)</option>
+                        <option value="100">Large (100 MB)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Default Ping Host</label>
+                    <input type="text" id="settingPingHost" placeholder="e.g. google.com">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Port Scan Timeout (Seconds)</label>
+                    <div class="slider-container">
+                        <input type="range" class="slider" id="settingPortTimeout" min="1" max="5" value="2">
+                        <span id="portTimeoutValDisplay">2s</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Theme</label>
+                    <select id="settingTheme">
+                        <option value="system">System</option>
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelSettingsBtn">Cancel</button>
+                <button class="btn-primary" id="saveSettingsBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

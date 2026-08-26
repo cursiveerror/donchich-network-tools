@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tools - Donchich Network Tools</title>
+    <title>DNT: Tools</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="container">
         <!-- Sidebar -->
@@ -30,35 +32,37 @@
                 <!-- Port Scanner Card -->
                 <div class="card" style="grid-column: span 1;">
                     <span class="card-title">Port Scanner</span>
-                    <p class="text-muted" style="font-size: 13px;">Scan common ports to check if they are open on a target host.</p>
-                    
+                    <p class="text-muted" style="font-size: 13px;">Scan common ports to check if they are open on a
+                        target host.</p>
+
                     <div class="form-group">
                         <label class="form-label">Target Host</label>
                         <input type="text" id="portHostInput" placeholder="e.g. google.com or 8.8.8.8">
                     </div>
-                    
+
                     <div class="form-group">
                         <label class="form-label">Ports (comma separated)</label>
                         <input type="text" id="portListInput" value="80,443,21,22,3306" placeholder="80, 443...">
                     </div>
 
                     <button class="btn-primary" id="scanPortsBtn">Scan Ports</button>
-                    
+
                     <div class="result-box d-none" id="portResultBox"></div>
                 </div>
 
                 <!-- DNS Lookup Card -->
                 <div class="card" style="grid-column: span 1;">
                     <span class="card-title">DNS Lookup</span>
-                    <p class="text-muted" style="font-size: 13px;">Query A, MX, and TXT records for a specific domain name.</p>
-                    
+                    <p class="text-muted" style="font-size: 13px;">Query A, MX, and TXT records for a specific domain
+                        name.</p>
+
                     <div class="form-group">
                         <label class="form-label">Domain Name</label>
                         <input type="text" id="dnsHostInput" placeholder="e.g. github.com">
                     </div>
-                    
+
                     <button class="btn-primary" id="scanDnsBtn" style="margin-top: auto;">Lookup DNS</button>
-                    
+
                     <div class="result-box d-none" id="dnsResultBox"></div>
                 </div>
             </div>
@@ -119,4 +123,5 @@
 
     <script src="js/tools.js"></script>
 </body>
+
 </html>
